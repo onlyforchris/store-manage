@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dal, core, admin
+  messages:
+    encoding: UTF-8
+
+server:
+  port: 8083
+
+logging:
+  level:
+    root: ERROR
+    org.springframework: ERROR
+    org.mybatis: ERROR
+    com.onlyforchris.store.manage: DEBUG
+    com.onlyforchris.store: ERROR
+
+swagger:
+  production: false
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
