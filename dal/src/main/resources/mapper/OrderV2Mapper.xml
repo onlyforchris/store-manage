@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.onlyforchris.store.dal.mapper.OrderV2Mapper">
     <update id="updateWithOptimisticLocker" parameterType="map">
-        update order
+        update `order`
         <set>
             <if test="order.id != null">
                 id = #{order.id,jdbcType=INTEGER},
@@ -103,7 +103,7 @@
 
     <select id="getOrderIds" resultType="hashmap">
         select o.id, o.add_time
-        from order o
+        from `order` o
         left join user u
         on o.user_id = u.id
         left join order_goods og
@@ -156,7 +156,7 @@
         u.id user_id, u.nickname user_name, u.avatar user_avatar, o.integral_price,
         og.id ogid, og.goods_id, og.product_id, og.goods_name, og.pic_url goods_picture,
         og.specifications goods_specifications, og.number goods_number, og.price goods_price
-        from order o
+        from `order` o
         left join user u
         on o.user_id = u.id
         left join order_goods og
